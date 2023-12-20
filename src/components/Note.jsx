@@ -48,13 +48,18 @@ function Note({ data }) {
           <ColorPicker color={color} setColor={setColor} setDisplayColorPallet={setDisplayColorPallet}/>:
           <>
             <button className='btn' onClick={clrPicker}><i className="fa-solid fa-palette fa-xs"></i></button>
+            {modalOpen?
+              <>
+                <EditModal title={title} note={note} setTitle={setTitle} setNote={setNote} setModalOpen={setModalOpen}/>
+                <button className="btn"><i className="fa-solid fa-pen-to-square fa-xs"></i></button>
+              </>
+              :
+              <button className="btn" onClick={opnModal}><i className="fa-solid fa-pen-to-square fa-xs"></i></button>
+            }
+            <button className='btn'><i className="fa-solid fa-trash fa-xs"></i></button>
           </>
         }
-        {modalOpen?
-          <EditModal title={title} note={note} setTitle={setTitle} setNote={setNote} setModalOpen={setModalOpen}/>:
-          <button className="btn" onClick={opnModal}><i className="fa-solid fa-pen-to-square fa-xs"></i></button>
-        }
-        <button className='btn'><i className="fa-solid fa-trash fa-xs"></i></button>
+        
 
       </div>
     </div>
