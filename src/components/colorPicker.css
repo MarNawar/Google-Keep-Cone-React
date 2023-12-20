@@ -1,0 +1,25 @@
+.clr{
+  height: 30px;
+  width: 30px;
+  border: none;
+  border-radius: 50%;
+  margin-left:5px ;
+}
+.clr.clr1{
+  background-color: #fff;
+}
+.clr.clr2{
+  background-color: #faafa8;
+}
+.clr.clr3{
+  background-color: #e2f6d3;
+}
+.clr.clr4{
+  background-color: #d3bfdb;
+}
+input{
+  display: inline;  
+}
+.clr.done{
+  background-color: white;
+}
