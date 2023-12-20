@@ -26,6 +26,11 @@ function Grid({data}) {
     })
   }
 
+  function deleteNoteFn(e){
+    e.preventDefault();
+    deleteNote(data.id);
+  }
+
   useEffect(()=>{
     // console.log('colour', color, note, title);
     if(color !== data.color){
@@ -56,7 +61,7 @@ function Grid({data}) {
               :
               <button className="btn" onClick={opnModal}><i className="fa-solid fa-pen-to-square fa-xs"></i></button>
             }
-            <button className='btn'><i className="fa-solid fa-trash fa-xs"></i></button>
+            <button className='btn' onClick={deleteNoteFn}><i className="fa-solid fa-trash fa-xs"></i></button>
           </>
         }
        

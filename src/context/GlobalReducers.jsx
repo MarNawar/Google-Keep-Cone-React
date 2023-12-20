@@ -8,7 +8,7 @@ export const NoteReducer = function(state, action){
       case 'DELETE_NOTE' :
         return {
           ...state,
-          transactions: state.transactions.filter((transaction) => transaction.id !== action.payload)
+          notes: state.notes.filter((note) => note.id !== action.payload)
         }
       case 'UPDATE_NOTE' :
         console.log('update', action.payload)
@@ -17,6 +17,11 @@ export const NoteReducer = function(state, action){
           notes : state.notes.map((note)=>{
             return note.id===action.payload.id? action.payload: note
           })
+        }
+      case 'UPDATE_SEARCH_QUERY' :
+        return {
+          ...state,
+          searchQuery : action.payload,
         }
       default :
         return state;

@@ -8,13 +8,14 @@ export const NoteContext = createContext();
 function GlobalContext({ children }) {
   const [notesState, notesDispatch] = useReducer(NoteReducer, {
     notes: [],
+    searchQuery : '',
   });
 
   const addNote = (title, note, color) => {
     const id = uuidv4();
     notesDispatch({
       type: 'ADD_NOTE',
-      payload: { id, title, note, color }, // Updated structure for dispatch
+      payload: { id, title, note, color }, 
     });
   };
 
@@ -32,13 +33,20 @@ function GlobalContext({ children }) {
     })
   }
 
+  const filterBySearchQuery = (query)=>{
+    notesDispatch({
+      type: 'UPDATE_SEARCH_QUERY',
+      payload: query,
+    })
+  }
   const [uiState, uiDispatch] = useReducer(uiReducer, {
     sidebar: 'half',
     layout: 'grid',
   });
 
   return (
-    <NoteContext.Provider value={{ notesState, notesDispatch, uiState, uiDispatch, addNote, updateNote,deleteNote }}>
+    <NoteContext.Provider value={{ notesState, notesDispatch, uiState, uiDispatch, 
+      addNote, updateNote,deleteNote, filterBySearchQuery }}>
       {children}
     </NoteContext.Provider>
   );
