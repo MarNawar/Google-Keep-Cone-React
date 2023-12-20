@@ -30,7 +30,7 @@ function Notes() {
         <div className='row gy-3 flex-column justify-content-center align-items-center'>
         {notesState.notes
         .filter((note)=>{
-          if(note.includes(notesState.searchQuery)){
+          if(note.title.includes(notesState.searchQuery)||note.note.includes(notesState.searchQuery)){
             return true;
           }
         })
