@@ -1,7 +1,7 @@
 .clr{
   height: 30px;
   width: 30px;
-  border: none;
+  border: 2px solid black;
   border-radius: 50%;
   margin-left:5px ;
 }
@@ -17,9 +17,13 @@
 .clr.clr4{
   background-color: #d3bfdb;
 }
-input{
-  display: inline;  
+.clrInput{
+  display: inline; 
+  width: 20px;
+  height: 20px;
+  margin-left: 10px; 
 }
-.clr.done{
-  background-color: white;
+.done{
+  background: transparent;
+  border: none;
 }

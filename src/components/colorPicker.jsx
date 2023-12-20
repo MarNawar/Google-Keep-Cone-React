@@ -32,11 +32,11 @@ function ColorPicker({color, setColor, setDisplayColorPallet}) {
             setColor('#d3bfdb')}}></button>
           <input
             type="color"
-            className="clr"
+            className="clrInput"
             value={color}
             onChange={handleColorChange}
           />
-          <button className='clr done' onClick={closeColorPicker}><i className="fa-regular fa-circle-check"></i></button>
+          <button className='done' onClick={closeColorPicker}><i className="fa-regular fa-circle-check"></i></button>
     </div>
   );
 }

@@ -28,7 +28,7 @@ function Nav() {
           <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
           <button className="btn btn-outline-success" type="submit">Search</button>
         </form>
-        <button className='btn my-2' onClick={changeLayout}>{uiState.layout!=='grid'?<i className="fa-solid fa-table-cells-large"></i>:<i className="fa-solid fa-bars fa-2xs"></i>}</button>
+        <button className='btn my-2' onClick={changeLayout}>{uiState.layout!=='grid'?<i className="fa-solid fa-table-cells-large fa-xs"></i>:<i className="fa-solid fa-bars fa-xs"></i>}</button>
       </div>
     </nav>
   )

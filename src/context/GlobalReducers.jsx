@@ -11,8 +11,12 @@ export const NoteReducer = function(state, action){
           transactions: state.transactions.filter((transaction) => transaction.id !== action.payload)
         }
       case 'UPDATE_NOTE' :
+        console.log('update', action.payload)
         return {
           ...state,
+          notes : state.notes.map((note)=>{
+            return note.id===action.payload.id? action.payload: note
+          })
         }
       default :
         return state;

@@ -1,21 +1,38 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import ColorPicker from './colorPicker';
+import { NoteContext } from '../context/GlobalContext';
 
 function Grid({data}) {
+  const [displayColorPallet, setDisplayColorPallet] = useState(false)
+  const [color, setColor] = useState(data.color)
 
-  // const data = {
-  //   title: 'Title1',
-  //   note : 'Note1 With supporting text b',
-  //   bgColor: 'green'
-  // }
+  const {updateNote, deleteNote} = useContext(NoteContext);
+
+  function clrPicker(e){
+    e.preventDefault();
+    setDisplayColorPallet(prev=>{
+      return !prev;
+    })
+  }
+  useEffect(()=>{
+    updateNote(data.title, data.note, color, data.id);
+  },[color])
+
   return (
     <div className="card mb-3 mx-2 text-dark" style={{width: "15rem",
     backgroundColor:data.color}}>
       <div className="card-body">
         <h5 className="card-title">{data.title}</h5>
         <p className="card-text">{data.note}</p>
-        <button className='btn'><i className="fa-solid fa-palette fa-xs"></i></button>
-        <button className="btn"><i className="fa-solid fa-pen-to-square fa-xs"></i></button>
-        <button className='btn'><i className="fa-solid fa-trash fa-xs"></i></button>
+        
+        {displayColorPallet?
+          <ColorPicker color={color} setColor={setColor} setDisplayColorPallet={setDisplayColorPallet}/>:
+          <>
+            <button className='btn' onClick={clrPicker}><i className="fa-solid fa-palette fa-xs"></i></button>
+            <button className="btn"><i className="fa-solid fa-pen-to-square fa-xs"></i></button>
+            <button className='btn'><i className="fa-solid fa-trash fa-xs"></i></button>
+          </>
+        }
       </div>
     </div>
   )
