@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
 :root {
-  --modal-duration: 1s;
+  --editModal-duration: 1s;
   --primary-color: #f8f9fa;
   --secondary-color: #feefc3;
   --tersary-color: #be2edd;
@@ -107,3 +107,5 @@ body {
   line-height: 1.6281;
 
 }
+
+

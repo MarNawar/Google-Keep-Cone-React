@@ -1,10 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react'
 import ColorPicker from './colorPicker';
 import { NoteContext } from '../context/GlobalContext';
-
+import EditModal from "./EditModal"
 function Note({ data }) {
   const [displayColorPallet, setDisplayColorPallet] = useState(false)
   const [color, setColor] = useState(data.color)
+  const [title, setTitle] = useState(data.title)
+  const [note, setNote] = useState(data.note);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const {updateNote, deleteNote} = useContext(NoteContext);
 
@@ -15,17 +18,23 @@ function Note({ data }) {
     })
   }
 
-  function openModal(e){
-
+  function opnModal(e){
+    e.preventDefault();
+    setModalOpen(prev=>{
+      return !prev;
+    })
   }
 
   useEffect(()=>{
-    console.log('colour', color);
+    // console.log('colour', color, note, title);
     if(color !== data.color){
       updateNote(data.title, data.note, color, data.id);
     }
+    if((title!== data.title)||(note !== data.note)){
+      updateNote(title, note, data.color, data.id);
+    }
 
-  },[color])
+  },[color, title, note])
 
 
   return (
@@ -39,10 +48,14 @@ function Note({ data }) {
           <ColorPicker color={color} setColor={setColor} setDisplayColorPallet={setDisplayColorPallet}/>:
           <>
             <button className='btn' onClick={clrPicker}><i className="fa-solid fa-palette fa-xs"></i></button>
-            <button className="btn" onClick={openModal}><i className="fa-solid fa-pen-to-square fa-xs"></i></button>
-            <button className='btn'><i className="fa-solid fa-trash fa-xs"></i></button>
           </>
         }
+        {modalOpen?
+          <EditModal title={title} note={note} setTitle={setTitle} setNote={setNote} setModalOpen={setModalOpen}/>:
+          <button className="btn" onClick={opnModal}><i className="fa-solid fa-pen-to-square fa-xs"></i></button>
+        }
+        <button className='btn'><i className="fa-solid fa-trash fa-xs"></i></button>
+
       </div>
     </div>
   )

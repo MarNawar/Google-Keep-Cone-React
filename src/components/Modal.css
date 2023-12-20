@@ -1,0 +1,98 @@
+/* editModal */
+
+/* :root {
+  --editModal-duration: 1s;
+  --primary-color: #f8f9fa;
+  --secondary-color: #feefc3;
+  --tersary-color: #be2edd;
+  --sidebar-primary-width: 250px;
+  --sidebar-secondary-width: 100px; 
+} */
+
+
+.editModal-container {
+  background-color: rgba(0, 0, 0, 0.6);
+  display: block;
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1000000000000000000000;
+}
+
+/* .editModal-container.show-editModal {
+  display: block;
+} */
+
+.editModal {
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  width: 400px;
+  animation-name: editModalopen;
+  animation-duration: var(--editModal-duration);
+  z-index: 100000000000000000000000000000000000;
+
+}
+
+.editModal-header {
+  background: var(--secondary-color);
+  color: black;
+  padding: 15px;
+}
+
+.editModal-header h3 {
+  margin: 0;
+  border-bottom: 1px solid #333;
+}
+
+.editModal-content {
+  padding: 20px;
+}
+
+.editModal-form > div {
+  margin: 15px 0;
+}
+
+.editModal-form > div > label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.editModal-form .form-input {
+  padding: 8px;
+  width: 100%;
+}
+
+.editModal-form .form-input:focus {
+  outline: 0;
+  border: 2px solid var(--secondary-color);
+}
+
+.close-btn {
+  background: transparent;
+  font-size: 25px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+input[type='submit'].disabled {
+  background-color: #F0ECE5;
+}
+
+
+@keyframes editModalopen {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
