@@ -122,4 +122,6 @@ nav input{
 
 .inputContainer input{
   border:none;
+  outline: none;
+
 }
