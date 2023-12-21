@@ -12,7 +12,6 @@ function Input() {
 
   function submitData(e){
     e.preventDefault();
-    // console.log(displayColorPallet)
     addNote(title, note, color);
     setTitle('');
     setNote('');
@@ -30,10 +29,14 @@ function Input() {
     <div>
       <form className='inputContainer'>
         <div className="mb-2">
-          <input type="text" className="form-control" id="title" placeholder='Title' value={title} onChange={(e)=>setTitle(e.target.value)}/>
+          <input type="text" className="form-control" id="title" placeholder='Title' value={title} onChange={(e)=>{
+            e.preventDefault();
+            setTitle(e.target.value)}}/>
         </div>
         <div className="mb-1">
-          <input type="text" className="form-control" id="note" placeholder='Note' value={note} onChange={(e)=>setNote(e.target.value)}/>
+          <input type="text" className="form-control" id="note" placeholder='Note' value={note} onChange={(e)=>{
+            e.preventDefault();
+            setNote(e.target.value)}}/>
         </div>
         {displayColorPallet?
           <ColorPicker color={color} setColor={setColor} setDisplayColorPallet={setDisplayColorPallet}/>:

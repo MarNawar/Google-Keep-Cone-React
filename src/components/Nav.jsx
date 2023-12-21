@@ -18,7 +18,7 @@ function Nav() {
 
 
   return (
-    <nav className="navbar bg-body-tertiary fixed-top">
+    <nav className="navbar fixed-top" style={{backgroundColor: "#ffffff", boxShadow: 'inset 0 -1px 0 0 #dadce0'}}>
       <div className="container-fluid mx-5">
         <button id="toggle" className="toggle" onClick={openSidebar}>
           <i className="fa fa-bars"></i>
@@ -33,7 +33,7 @@ function Nav() {
           }}/>
           
         </form>
-        <button className='btn my-2' onClick={changeLayout}>{uiState.layout!=='grid'?<i className="fa-solid fa-table-cells-large fa-lg"></i>:<i class="fa-solid fa-list-ul fa-lg"></i>}</button>
+        <button className='btn my-2' onClick={changeLayout}>{uiState.layout!=='grid'?<i className="fa-solid fa-table-cells-large fa-lg"></i>:<i className="fa-solid fa-list-ul fa-lg"></i>}</button>
       </div>
     </nav>
   )
