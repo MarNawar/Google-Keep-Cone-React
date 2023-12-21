@@ -6,11 +6,9 @@ This is a simple application built with React to mimic the functionality of note
 
 - [Overview](#overview)
 - [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
 - [Setup](#setup)
-- [Usage](#usage)
-- [File Structure](#file-structure)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
