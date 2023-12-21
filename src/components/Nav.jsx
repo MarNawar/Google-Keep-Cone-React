@@ -39,7 +39,7 @@ function Nav() {
           }} />
         </form>
         {/* Button to toggle between grid and list layout */}
-        <button className='btn my-2' onClick={changeLayout}>
+        <button className='btn my-2 layout' onClick={changeLayout}>
           {uiState.layout !== 'grid' ? <i className="fa-solid fa-table-cells-large fa-lg"></i> : <i className="fa-solid fa-list-ul fa-lg"></i>}
         </button>
       </div>
