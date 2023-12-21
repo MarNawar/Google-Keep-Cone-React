@@ -16,7 +16,7 @@ function ColorPicker({ color, setColor, setDisplayColorPallet }) {
   }
 
   return (
-    <div className="container py-3">
+    <div className="container py-3" >
       {/* Buttons to select predefined colors */}
       <button className='clr colr1' onClick={(e) => {
         e.preventDefault();

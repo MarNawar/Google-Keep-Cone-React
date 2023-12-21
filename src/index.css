@@ -125,3 +125,55 @@ nav input{
   outline: none;
 
 }
+
+@media (min-width: 701px) and (max-width: 1200px) {
+  .inputContainer{
+    max-width: 70%;
+    width: 600px;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 700px) {
+  .inputContainer{
+    max-width: 70%;
+    width: 500px;
+  }
+  .notesContainer{
+    width:500px;
+    margin-top: 45px;
+  }
+  .notesContainer.active{
+    margin: 0px 10px 15px 110px;
+    width: 1200px;
+  }
+}
+
+@media (min-width: 1px) and (max-width: 500px) {
+  .inputContainer{
+    max-width: 50%;
+    width: 150px;
+    /* margin-top: 30%; */
+
+  }
+  .logo{
+    margin-left: 0;
+    font-size: 5px;
+  }
+  .logo a span{
+    display:none;
+  }
+  /* .toggle{
+    display: none;
+  } */
+
+  .notesContainer{
+    width:200px;
+    margin-top: 45px;
+  }
+  .notesContainer.active{
+    margin: 0px 10px 15px 110px;
+    width: 1200px;
+  }
+
+  
+}

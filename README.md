@@ -33,17 +33,13 @@ List any prerequisites or dependencies that need to be installed before running 
 
 Step-by-step instructions on how to install and set up the project locally. Include commands or configuration needed to get the application running.
 
-# Clone the repository
-git clone https://github.com/MarNawar/Google-Keep-Cone-React/tree/main/src
+- **Clone the repository**: git clone https://github.com/MarNawar/Google-Keep-Cone-React/tree/main/src
 
-# Change to the project directory
-cd '.\Google Keep Clone\'
+- **Change to the project directory**: cd '.\Google Keep Clone\'
 
-# Install dependencies
-npm install
+- **Install dependencies**: npm install
 
-# Run Locally in Browser
-npm run dev
+- **Run Locally in Browser**: npm run dev
 
 ## Setup
 
