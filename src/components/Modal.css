@@ -1,13 +1,4 @@
-/* editModal */
 
-/* :root {
-  --editModal-duration: 1s;
-  --primary-color: #f8f9fa;
-  --secondary-color: #feefc3;
-  --tersary-color: #be2edd;
-  --sidebar-primary-width: 250px;
-  --sidebar-secondary-width: 100px; 
-} */
 
 
 .editModal-container {
@@ -21,9 +12,6 @@
   z-index: 1000000000000000000000;
 }
 
-/* .editModal-container.show-editModal {
-  display: block;
-} */
 
 .editModal {
   background-color: var(--primary-color);

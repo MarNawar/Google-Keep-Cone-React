@@ -33,7 +33,7 @@ function Nav() {
           }}/>
           
         </form>
-        <button className='btn my-2' onClick={changeLayout}>{uiState.layout!=='grid'?<i className="fa-solid fa-table-cells-large fa-xs"></i>:<i className="fa-solid fa-bars fa-xs"></i>}</button>
+        <button className='btn my-2' onClick={changeLayout}>{uiState.layout!=='grid'?<i className="fa-solid fa-table-cells-large fa-lg"></i>:<i class="fa-solid fa-list-ul fa-lg"></i>}</button>
       </div>
     </nav>
   )

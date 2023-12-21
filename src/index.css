@@ -28,7 +28,6 @@ body {
   left: 0;
   width: var(--sidebar-secondary-width); 
   height: 100%;
-  /* transform: translateX(40%); */
   z-index: 1;
   flex-direction: column;
 }
@@ -37,16 +36,7 @@ body {
   width: var(--sidebar-primary-width); 
 }
 
-/* .sidebar .logo {
-  padding: 30px 0;
-  text-align: center;
-}
 
-.sidebar .logo img {
-  height: 105px;
-  width: 105px;
-  border-radius: 50%;
-} */
 
 .sidebar ul {
   padding: 0;

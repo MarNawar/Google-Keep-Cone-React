@@ -31,7 +31,6 @@ function Note({ data }) {
   }
 
   useEffect(()=>{
-    // console.log('colour', color, note, title);
     if(color !== data.color){
       updateNote(data.title, data.note, color, data.id);
     }

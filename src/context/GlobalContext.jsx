@@ -1,13 +1,18 @@
-import React, { createContext, useReducer, useContext } from 'react';
+import React, { createContext, useReducer, useContext, useEffect } from 'react';
 import { NoteReducer, uiReducer } from './GlobalReducers'; // Check the correct path
 import { v4 as uuidv4 } from 'uuid';
+import { useLocalStorage } from '../customHooks/useLocalStorage';
 
 
 export const NoteContext = createContext();
 
 function GlobalContext({ children }) {
+  const [value, setValueInStorage]= useLocalStorage('notes',[])
+  const [layout, setLayout] = useLocalStorage('layout', 'list');
+
+  console.log(value, 'value')
   const [notesState, notesDispatch] = useReducer(NoteReducer, {
-    notes: [],
+    notes: value,
     searchQuery : '',
   });
 
@@ -31,6 +36,7 @@ function GlobalContext({ children }) {
       type: 'DELETE_NOTE',
       payload: id,
     })
+    
   }
 
   const filterBySearchQuery = (query)=>{
@@ -41,8 +47,16 @@ function GlobalContext({ children }) {
   }
   const [uiState, uiDispatch] = useReducer(uiReducer, {
     sidebar: 'half',
-    layout: 'grid',
+    layout: layout,
   });
+
+  useEffect(()=>{
+    setValueInStorage(notesState.notes)
+  },[notesState])
+
+  useEffect(()=>{
+    setLayout(uiState.layout)
+  })
 
   return (
     <NoteContext.Provider value={{ notesState, notesDispatch, uiState, uiDispatch, 
