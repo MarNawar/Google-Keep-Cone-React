@@ -1,24 +1,27 @@
 import React from 'react';
-import './Modal.css'
+import './Modal.css';
 
 function EditModal({ title, note, setTitle, setNote, setModalOpen }) {
 
-  function closeModal(){
-    setModalOpen(prev=>{
-      return !prev;
-    })
+  // Function to close the edit modal
+  function closeModal(e) {
+    e.preventDefault();
+    // Toggles the modal state to close it
+    setModalOpen(prev => !prev);
   }
 
   return (
     <div className="editModal-container" id="editModal">
       <div className="editModal">
-        <button className="close-btn" id="close">
+        {/* Close button */}
+        <button className="close-btn" id="close" onClick={closeModal}>
           <i className="fa fa-times"></i>
         </button>
         <div className="editModal-header">
           <h3>Update Note</h3>
         </div>
         <div className="editModal-content">
+          {/* Form for editing note */}
           <form className="editModal-form" id="form">
             <div>
               <label htmlFor="title">Title</label>
@@ -28,7 +31,10 @@ function EditModal({ title, note, setTitle, setNote, setModalOpen }) {
                 placeholder="Title"
                 className="form-input"
                 value={title}
-                onChange={(e) => { setTitle(e.target.value) }}
+                onChange={(e) => {
+                  e.preventDefault(); 
+                  setTitle(e.target.value) 
+                }}
               />
             </div>
             <div>
@@ -39,21 +45,25 @@ function EditModal({ title, note, setTitle, setNote, setModalOpen }) {
                 placeholder="Note"
                 className="form-input"
                 value={note}
-                onChange={(e) => { setNote(e.target.value) }}
+                onChange={(e) => {
+                  e.preventDefault(); 
+                  setNote(e.target.value) 
+                }}
               />
             </div>
+            {/* Submit button to confirm changes and close modal */}
             <input
               type="submit"
               value="Submit"
               id="btn"
               className="submit-btn disabled"
-              onClick={closeModal}
+              onClick={closeModal} // Calls the closeModal function when clicked
             />
           </form>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default EditModal;

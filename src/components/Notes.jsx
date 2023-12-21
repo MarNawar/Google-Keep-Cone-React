@@ -1,47 +1,48 @@
-import { useContext } from "react"
-import Grid from "./Grid"
-import Note from "./Note"
+import { useContext } from "react";
+import Grid from "./Grid";
 import { NoteContext } from "../context/GlobalContext";
-
+import List from "./List";
 
 function Notes() {
-  const { notesState,uiState } = useContext(NoteContext); 
-
-
+  const { notesState, uiState } = useContext(NoteContext);
 
   return (
-    <div className= {(uiState.layout==='grid'&&uiState.sidebar === 'full')?'notesContainer active':'notesContainer'}>      
-      {uiState.layout==='grid'?
-      <div className="container my-5 " >   
-        <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4 justify-content-start'>
-          {notesState.notes
-          .filter((note)=>{
-            if(note.title.includes(notesState.searchQuery)||note.note.includes(notesState.searchQuery)){
-              return true;
-            }
-          }).map((note)=>{
-            return <Grid key={note.id} data = {note}/>
-          })}
-          
+    <div className={(uiState.layout === 'grid' && uiState.sidebar === 'expanded') ? 'notesContainer active' : 'notesContainer'}>
+      {uiState.layout === 'grid' ? (
+        <div className="container my-5">
+          {/* Displaying notes in a grid layout */}
+          <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4 justify-content-start'>
+            {notesState.notes
+              .filter((note) => {
+                // Filtering notes based on search query
+                if (note.title.includes(notesState.searchQuery) || note.note.includes(notesState.searchQuery)) {
+                  return true;
+                }
+              })
+              .map((note) => {
+                return <Grid key={note.id} data={note} />;
+              })}
+          </div>
         </div>
-      </div>
-      :
-      <div className="container my-3 ">
-        <div className='row gy-3 flex-column justify-content-center align-items-center'>
-        {notesState.notes
-        .filter((note)=>{
-          if(note.title.includes(notesState.searchQuery)||note.note.includes(notesState.searchQuery)){
-            return true;
-          }
-        })
-        .map((note)=>{
-            return <Note key={note.id} data = {note}/>
-          })}
+      ) : (
+        <div className="container my-3">
+          {/* Displaying notes in a list layout */}
+          <div className='row gy-3 flex-column justify-content-center align-items-center'>
+            {notesState.notes
+              .filter((note) => {
+                // Filtering notes based on search query
+                if (note.title.includes(notesState.searchQuery) || note.note.includes(notesState.searchQuery)) {
+                  return true;
+                }
+              })
+              .map((note) => {
+                return <List key={note.id} data={note} />;
+              })}
+          </div>
         </div>
-      </div> 
-      }
+      )}
     </div>
-  )
+  );
 }
 
-export default Notes
+export default Notes;

@@ -11,7 +11,6 @@ export const NoteReducer = function(state, action){
           notes: state.notes.filter((note) => note.id !== action.payload)
         }
       case 'UPDATE_NOTE' :
-        console.log('update', action.payload)
         return {
           ...state,
           notes : state.notes.map((note)=>{
@@ -36,10 +35,9 @@ export const uiReducer = function (state, action){
           layout: state.layout==='grid'? 'list' : 'grid'
         }
       case 'OPEN_SIDEBAR' :
-        console.log(state.sidebar)
         return {
           ...state,
-          sidebar: state.sidebar === 'half'? 'full' : 'half'
+          sidebar: state.sidebar === 'collapsed'? 'expanded' : 'collapsed'
         }
       default :
         return state;

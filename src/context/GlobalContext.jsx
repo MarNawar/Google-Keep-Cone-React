@@ -3,64 +3,84 @@ import { NoteReducer, uiReducer } from './GlobalReducers'; // Check the correct 
 import { v4 as uuidv4 } from 'uuid';
 import { useLocalStorage } from '../customHooks/useLocalStorage';
 
-
+// Create a context for the notes
 export const NoteContext = createContext();
 
 function GlobalContext({ children }) {
-  const [value, setValueInStorage]= useLocalStorage('notes',[])
+  // Retrieve notes data from local storage, using a custom hook
+  const [value, setValueInStorage] = useLocalStorage('notes', []);
+  // Retrieve and set the layout type from local storage
   const [layout, setLayout] = useLocalStorage('layout', 'list');
 
-  console.log(value, 'value')
+  // Initialize notesState with the retrieved notes and an empty search query
   const [notesState, notesDispatch] = useReducer(NoteReducer, {
     notes: value,
-    searchQuery : '',
+    searchQuery: '',
   });
 
+  // Function to add a new note
   const addNote = (title, note, color) => {
     const id = uuidv4();
     notesDispatch({
       type: 'ADD_NOTE',
-      payload: { id, title, note, color }, 
+      payload: { id, title, note, color },
     });
   };
 
-  const updateNote = (title, note, color, id)=>{
+  // Function to update a note
+  const updateNote = (title, note, color, id) => {
     notesDispatch({
-      type:'UPDATE_NOTE',
-      payload: { title, note, color, id }
-    })
-  }
+      type: 'UPDATE_NOTE',
+      payload: { title, note, color, id },
+    });
+  };
 
-  const deleteNote=(id)=>{
+  // Function to delete a note
+  const deleteNote = (id) => {
     notesDispatch({
       type: 'DELETE_NOTE',
       payload: id,
-    })
-    
-  }
+    });
+  };
 
-  const filterBySearchQuery = (query)=>{
+  // Function to filter notes by search query
+  const filterBySearchQuery = (query) => {
     notesDispatch({
       type: 'UPDATE_SEARCH_QUERY',
       payload: query,
-    })
-  }
+    });
+  };
+
+  // Initialize the UI state with sidebar and layout information
   const [uiState, uiDispatch] = useReducer(uiReducer, {
-    sidebar: 'half',
+    sidebar: 'collapsed',
     layout: layout,
   });
 
-  useEffect(()=>{
-    setValueInStorage(notesState.notes)
-  },[notesState])
+  // Update local storage when the notes state changes
+  useEffect(() => {
+    setValueInStorage(notesState.notes);
+  }, [notesState]);
 
-  useEffect(()=>{
-    setLayout(uiState.layout)
-  })
+  // Update layout in local storage when UI state changes
+  useEffect(() => {
+    setLayout(uiState.layout);
+  });
 
+  // Provide the context value to the components
   return (
-    <NoteContext.Provider value={{ notesState, notesDispatch, uiState, uiDispatch, 
-      addNote, updateNote,deleteNote, filterBySearchQuery }}>
+    <NoteContext.Provider
+      value={{
+        notesState,
+        notesDispatch,
+        uiState,
+        uiDispatch,
+        addNote,
+        updateNote,
+        deleteNote,
+        filterBySearchQuery,
+      }}
+    >
       {children}
     </NoteContext.Provider>
   );
@@ -68,6 +88,7 @@ function GlobalContext({ children }) {
 
 export default GlobalContext;
 
-export function SomeComponent() {
-  return useContext(NoteContext);
-}
+// // Example of using the context in another component
+// export function SomeComponent() {
+//   return useContext(NoteContext);
+// }
