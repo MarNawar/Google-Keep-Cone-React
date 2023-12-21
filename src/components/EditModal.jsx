@@ -1,7 +1,7 @@
 import React from 'react';
 import './Modal.css';
 
-function EditModal({ title, note, setTitle, setNote, setModalOpen }) {
+function EditModal({ title, note, setTitle, setNote, bgColor ,setModalOpen }) {
 
   // Function to close the edit modal
   function closeModal(e) {
@@ -20,7 +20,7 @@ function EditModal({ title, note, setTitle, setNote, setModalOpen }) {
         <div className="editModal-header">
           <h3>Update Note</h3>
         </div>
-        <div className="editModal-content">
+        <div className="editModal-content" style={{backgroundColor:bgColor}}>
           {/* Form for editing note */}
           <form className="editModal-form" id="form">
             <div>
@@ -30,6 +30,7 @@ function EditModal({ title, note, setTitle, setNote, setModalOpen }) {
                 id="title"
                 placeholder="Title"
                 className="form-input"
+                style={{backgroundColor:bgColor}}
                 value={title}
                 onChange={(e) => {
                   e.preventDefault(); 
@@ -44,6 +45,7 @@ function EditModal({ title, note, setTitle, setNote, setModalOpen }) {
                 id="note"
                 placeholder="Note"
                 className="form-input"
+                style={{backgroundColor:bgColor}}
                 value={note}
                 onChange={(e) => {
                   e.preventDefault(); 
@@ -56,7 +58,7 @@ function EditModal({ title, note, setTitle, setNote, setModalOpen }) {
               type="submit"
               value="Submit"
               id="btn"
-              className="submit-btn disabled"
+              className="submit-btn"
               onClick={closeModal} // Calls the closeModal function when clicked
             />
           </form>

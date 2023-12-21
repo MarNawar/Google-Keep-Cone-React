@@ -61,7 +61,7 @@ function Grid({ data }) {
             {modalOpen ? (
               // If modal is open, display the EditModal component
               <>
-                <EditModal title={title} note={note} setTitle={setTitle} setNote={setNote} setModalOpen={setModalOpen} />
+                <EditModal title={title} note={note} setTitle={setTitle} setNote={setNote} bgColor={color} setModalOpen={setModalOpen} />
                 {/* Button to close the modal */}
                 <button className="btn"><i className="fa-solid fa-pen-to-square fa-xs"></i></button>
               </>

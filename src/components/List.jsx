@@ -58,7 +58,7 @@ function List({ data }) {
             {modalOpen ?
               <>
                 {/* Edit modal */}
-                <EditModal title={title} note={note} setTitle={setTitle} setNote={setNote} setModalOpen={setModalOpen} />
+                <EditModal title={title} note={note} setTitle={setTitle} setNote={setNote} bgColor={color} setModalOpen={setModalOpen} />
                 <button className="btn"><i className="fa-solid fa-pen-to-square fa-xs"></i></button>
               </>
               :
