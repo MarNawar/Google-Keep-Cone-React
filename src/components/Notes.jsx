@@ -15,7 +15,8 @@ function Notes() {
             {notesState.notes
               .filter((note) => {
                 // Filtering notes based on search query
-                if (note.title.includes(notesState.searchQuery) || note.note.includes(notesState.searchQuery)) {
+                if (note.title.toLowerCase().includes(notesState.searchQuery.toLowerCase()) || 
+                    note.note.toLowerCase().includes(notesState.searchQuery.toLowerCase())) {
                   return true;
                 }
               })
@@ -31,7 +32,8 @@ function Notes() {
             {notesState.notes
               .filter((note) => {
                 // Filtering notes based on search query
-                if (note.title.includes(notesState.searchQuery) || note.note.includes(notesState.searchQuery)) {
+                if (note.title.toLowerCase().includes(notesState.searchQuery.toLowerCase()) || 
+                    note.note.toLowerCase().includes(notesState.searchQuery.toLowerCase())) {
                   return true;
                 }
               })
