@@ -31,7 +31,7 @@ function Input() {
 
   return (
     <div>
-      <form className='inputContainer'>
+      <form className='inputContainer' style={{backgroundColor:color}}>
         {/* Input field for title */}
         <div className="mb-2">
           <input
@@ -39,6 +39,7 @@ function Input() {
             className="form-control"
             id="title"
             placeholder='Title'
+            style={{backgroundColor:color}}
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
@@ -50,6 +51,7 @@ function Input() {
             className="form-control"
             id="note"
             placeholder='Note'
+            style={{backgroundColor:color}}
             value={note}
             onChange={(e) => setNote(e.target.value)}
           />
