@@ -167,12 +167,12 @@ nav input{
   }
   .notesContainer{
     width:200px;
-    margin: 0px 10px 15px 130px;
+    margin: 0px 0px 15px 130px;
 
   }
-  /* .notesContainer.active{
-    margin: 0px 10px 15px 110px;
-  } */
+  .notesContainer.active{
+    margin: 0px 0px 15px 90px;
+  }
 
   .layout{
     display: none;
