@@ -91,7 +91,13 @@ nav input{
   width: 100%;
   line-height: 1.6281;
 }
+.note button{
+  visibility: hidden;
+}
 
+.note:hover button{
+  visibility: visible;
+}
 .notesContainer.active{
   margin: 0px 200px 15px 350px;
   width: 80%;

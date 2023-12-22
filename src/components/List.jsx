@@ -43,7 +43,7 @@ function List({ data }) {
   }, [color, title, note]);
 
   return (
-    <div className="card text-dark" style={{ width: "40rem", backgroundColor: data.color }}>
+    <div className="card text-dark note" style={{ width: "40rem", backgroundColor: data.color }}>
       <div className="card-body">
         <h5 className="card-title">{data.title}</h5>
         <p className="card-text">{data.note}</p>

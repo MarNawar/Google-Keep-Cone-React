@@ -46,7 +46,7 @@ function Grid({ data }) {
   }, [color, title, note]);
 
   return (
-    <div className="card mb-3 mx-2 text-dark" style={{ width: "15rem", backgroundColor: data.color }}>
+    <div className="card mb-3 mx-2 text-dark note" style={{ width: "15rem", backgroundColor: data.color }}>
       <div className="card-body">
         <h5 className="card-title">{data.title}</h5>
         <p className="card-text">{data.note}</p>
