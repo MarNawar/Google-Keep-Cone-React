@@ -2,6 +2,7 @@
 
 :root {
   --editModal-duration: 1s;
+  --trans-duration: .3s;
   --primary-color: #f8f9fa;
   --secondary-color: #feefc3;
   --tersary-color: #ffffff;
@@ -90,12 +91,23 @@ nav input{
   max-width: calc(100% - var(--sidebar-secondary-width));
   width: 100%;
   line-height: 1.6281;
+  
+}
+.note{
+  animation-name: trans;
+  animation-duration: var(--editModal-duration);
+  /* animation-duration: var(--trans-duration); */
+
 }
 .note .btn{
   visibility: hidden;
 }
 
 .note:hover .btn{
+  animation-name: trans;
+  /* animation-duration: var(--trans-duration); */
+  animation-duration: var(--editModal-duration);
+
   visibility: visible;
 }
 .notesContainer.active{
@@ -184,4 +196,14 @@ nav input{
     display: none;
   }
   
+}
+
+@keyframes trans {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
