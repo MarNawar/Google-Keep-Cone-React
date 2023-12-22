@@ -88,13 +88,13 @@ nav input{
   padding: 0;
   margin: 0px 10px 15px 110px;
   max-width: calc(100% - var(--sidebar-secondary-width));
-  width: 1400px;
+  width: 100%;
   line-height: 1.6281;
 }
 
 .notesContainer.active{
   margin: 0px 200px 15px 350px;
-  width: 1200px;
+  width: 80%;
 }
 
 .toggle {
@@ -110,6 +110,7 @@ nav input{
   padding: 15px;
   margin: 0 auto;
   margin-top: 100px;
+  margin-left: 30%;
   max-width: calc(100% - var(--sidebar-secondary-width));
   width: 800px;
   /* height: 160px; */
@@ -122,13 +123,14 @@ nav input{
 
 .inputContainer input{
   border:none;
-  outline: none;
 }
 
 @media (min-width: 701px) and (max-width: 1200px) {
   .inputContainer{
     max-width: 70%;
     width: 600px;
+    margin-left: 25%;
+
   }
 }
 
@@ -136,22 +138,24 @@ nav input{
   .inputContainer{
     max-width: 70%;
     width: 500px;
+    margin-left: 20%;
+
   }
-  .notesContainer{
+  /* .notesContainer{
     width:500px;
     margin-top: 45px;
   }
   .notesContainer.active{
     margin: 0px 10px 15px 110px;
     width: 1200px;
-  }
+  } */
 }
 
 @media (min-width: 1px) and (max-width: 500px) {
   .inputContainer{
     max-width: 50%;
     width: 150px;
-    /* margin-top: 30%; */
+    margin-left: 40%;
 
   }
   .logo{
@@ -161,18 +165,15 @@ nav input{
   .logo a span{
     display:none;
   }
-  /* .toggle{
-    display: none;
-  } */
-
   .notesContainer{
     width:200px;
-    margin-top: 45px;
+    margin: 0px 10px 15px 130px;
+
   }
-  .notesContainer.active{
+  /* .notesContainer.active{
     margin: 0px 10px 15px 110px;
-    width: 1200px;
-  }
+  } */
+
   .layout{
     display: none;
   }
